@@ -8,11 +8,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6.0.2
 
       # Cache npm dependencies
       - name: Cache
-        uses: actions/cache@v4
+        uses: actions/cache@v5.0.3
         with:
           path: ~/.npm
           key: buildCache-${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}
@@ -31,7 +31,7 @@ jobs:
 
       # Upload coverage artifacts
       - name: Upload code coverage
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7.0.0
         with:
           name: codecoverage
           path: coverage
@@ -42,7 +42,7 @@ jobs:
 
       # Upload build artifacts
       - name: Upload build files
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7.0.0
         with:
           name: build
           path: build
